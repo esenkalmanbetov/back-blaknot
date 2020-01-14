@@ -6,5 +6,11 @@ module.exports = app => {
 
   // Retrieve all Subjects
   app.get("/subjects", subjects.findAll);
-  
+
+  // Update a Subject with subjectId
+  app.put("/subjects/:subjectId", subjects.update);
+
+  // Delete a Subject with subjectId
+  app.delete("/subjects/:subjectId", subjects.delete);
+
 }
