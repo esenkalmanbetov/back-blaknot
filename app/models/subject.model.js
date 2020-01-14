@@ -100,4 +100,19 @@ Subject.remove = (id, result) => {
   });
 };
 
+Subject.search = (searchText, result) => {
+  const search = '%'+searchText+'%'
+  sql.query(`Select * FROM subjects 
+              WHERE Title like ? or Description like ?`,
+              [search, search],
+    (err, res) => {
+      if (err) {
+        result(null, err);
+        return;
+      }
+
+      result(null, res)
+    });
+};
+
 module.exports = Subject;

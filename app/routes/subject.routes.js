@@ -13,4 +13,6 @@ module.exports = app => {
   // Delete a Subject with subjectId
   app.delete("/subjects/:subjectId", subjects.delete);
 
+  app.get("/subjects/search/:searchText", subjects.search);
+
 }

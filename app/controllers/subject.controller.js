@@ -86,3 +86,14 @@ exports.delete = (req, res) => {
     } else res.send(data);
   });
 };
+
+exports.search = (req, res) => {
+  Subject.search(req.params.searchText, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving subjects."
+      });
+    else res.send(data);
+  });
+};
